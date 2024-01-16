@@ -1,4 +1,4 @@
-######################## Figure 1 & Figure 3 ############################
+############################## Figure 1  ###############################
 # Figure 1: Trajectories of phenotypes and FST of collinear loci
 #
 #author: "Diego Garcia"
