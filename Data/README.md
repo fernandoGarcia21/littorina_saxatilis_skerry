@@ -6,7 +6,7 @@ This directory contains the datasets needed to conduct the analyses in our MS, c
 
 doi: https://doi.org/10.1101/2023.09.27.559715
 
-Clarifying notes:
+**Clarifying notes:**
 
 - The dataset AllShapePhenotypicData.csv is an integration of the shape data in the folder shape_parameters and the phenotypes in the file "SkerryRawPhenotoypicData.xlsx"
 
@@ -15,3 +15,48 @@ Clarifying notes:
 - The Interpolation demographic parameters_random values 23 Sept 2023.csv was uploaded compressed in a .RAR format. To be used it must be extracted in the Data directory.
 
 - The Content of the SEQSNPTM003_DEMOGRAPHIC INFERENCE directory (1875 files) was uploaded compressed in a .RAR format (SEQSNPTM003_nll.rar). To be used it must be extracted in the Data/SEQSNPTM003_DEMOGRAPHIC INFERENCE folder.
+
+
+**Content:**
+
+- **AllShapePhenotypicData.csv**: 	Integration of the shape data from the folder shape_parameters and the phenotypes in the file "SkerryRawPhenotoypicData.xlsx" for practicity. It is used in the analysis of trajectory of phenotypes and in the test of predictions.
+- **Beige.txt**: 	Number of snails classified as Beige colour from each population and year. It is used in the analysis of trajectory of phenotypes.
+- **Complex_Karyotypes_Ids.txt**: 	Complex inversions have 6 possible karyotypes or clusters. This file is a translation from 1 to 6 (clusters) to A,B,C,AC, BC, AB for complex inversions. It is used by the test of predictions.
+- **contigPositionsGM.txt**: 	Contains the coordinates of the contigs in the genetic map. It is used in the analysis of the inversions, the Manhattan plot, and the test for hitch-hiking.
+- **fst_previous_studies**: 	It is a directory that contains the FST values between Wave and Crab in other swedish locations. It is used in the space - time correlation analysis.
+- **Individuals_karyotypes_inversions.txt**: 	It is a table with the karyotypes of each individual. This file is used in the test of predictions.
+- **Interpolation demographic parameters_random values 23 Sept 2023.rar**: 	500K random draws from the likelihood surface of the demographic inference.
+- **Interpolation s inversions 10 Dec.csv**: 	
+- **Interpolation s sel SNPs 10 Dec.csv**: 	
+- **Inversions_Frequencies_for_Envelope_November2023.txt**: 	It contains the frequencies of the inversion arrangements in Crab, skerry and Wave from multiple years. It is used in the analysis of the expected range of the demographic inference.
+- **Inversions_SampleSize_for_Envelope.txt**: 	It contains the number of individuals that was used to estimate the arrangement frequencies for each inversion and population.
+- **Inversions_Trajectories_Frequency_Skerry.txt**: 	Frequencies of the inversion arrangements over time in the skerry. It is used in the Manhattan plot, and in the trajectories of inversions and drift simulations.
+- **Inversions_Trajectories_Frequency_WaveCrab.txt**: 	Frequencies of the inversion arrangements over time in the Crab and Wave ecotype populations. It is used in the Manhattan plot, and in the trajectories of inversions and drift simulations.
+- **Inv_Coordinates.txt**: 	Coordinates of the inversions (e.g. start and end in the genetic map). It is used in most inversion analysis, including the Manhattan plot.
+- **Inv_Genotypes.txt**: 	SNP genotypes for inversion regions. It is the basis of most inversion analysis. E.g. the estimate of arrangement frequencies.
+- **koch_2022_estimates**: 	Directory with the estimates of phenotypic plasticity from Koch et al. (2022). It is used in the estimates of selection based on phenotypes.
+- **Ridges.txt**: 	Classification of snails in ridged (1) or non-ridged (0) based on "SkerryRawPhenotoypicData.xlsx". It is used in the analysis of trajectory of phenotypes.
+- **SEQSNPTM001_ALLELE_FREQS_INV.txt**: 	
+- **SEQSNPTM001_ALLELE_FREQS_NEU.txt**: 	
+- **SEQSNPTM001_ALLELE_FREQS_NEU_subsampled.txt**: 	
+- **SEQSNPTM001_ALLELE_FREQS_OUT.txt**: 	
+- **SEQSNPTM001_ALLELE_FREQS_OUT_subsampled.txt**: 	
+- **SEQSNPTM002_GRID.txt**: 	
+- **SEQSNPTM003_DEMOGRAPHIC INFERENCE**: 	
+- **SEQSNPTM004_RESULTS DEMOGRAPHIC INFERENCE.txt**: 	
+- **SEQSNPTM006_OUTLIER_STATUS_INV.txt**: 	
+- **SEQSNPTM006_OUTLIER_STATUS_NEU.txt**: 	
+- **SEQSNPTM006_OUTLIER_STATUS_OUT.txt**: 	
+- **SEQSNPTM007_ESTIMATE_S_inv.txt**: 	
+- **SEQSNPTM007_ESTIMATE_S_out.txt**: 	
+- **SEQSNPTM007_Fst_other_locations.txt**: 	
+- **SEQSNPTM008_SGV_VS_GF_inv.pdf**: 	
+- **SEQSNPTM008_SGV_VS_GF_out.pdf**: 	
+- **SEQSNPTM009_TIME VS SPACE_INV.txt**: 	FST estimates for inversions along the space axis (Crab vs Wave in other swedish locations) and time axis (skerry 2021 vs 1992). It is used in the space-time correlation analysis.
+- **SEQSNPTM009_TIME VS SPACE_OUT.txt**: 	FST estimates for spatial outliers along the space axis (Crab vs Wave in other swedish locations) and time axis (skerry 2021 vs 1992). It is used in the space-time correlation analysis.
+- **shape_parameters**: 	Measures of shape shell parameters from the ShellShaper by Larsson et al (2020) for Crab, skerry and Wave samples. It is used in the estimates of selection based on phenotypes. 
+- **SkerryExperiment_Neutral_NOLG12_Swedenfilter.txt**: 	SNP genotypes of Control loci (collinear).
+- **SkerryExperiment_Outliers_NOLG12_Swedenfilter.txt**: 	SNP genotypes of Spatial Outlier loci (collinear).
+- **SkerryRawPhenotoypicData.xlsx**: 	All measurements and observations of quantitative and qualitative traits of Crab, skerry, and Wave individuals from multiple sampling years. Shell shape measurements are not in this file.
+- **Tesselation.txt**: 	Classification of snails in tesselated (1) or non-tesselated (0) based on "SkerryRawPhenotoypicData.xlsx". It is used in the analysis of trajectory of phenotypes. Tesselation means shell patterning.
+- **Thickness.txt**: 	Average thickness of the shells based on three measurements on "SkerryRawPhenotoypicData.xlsx". It is used in the analysis of trajectory of phenotypes.
