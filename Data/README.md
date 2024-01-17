@@ -23,7 +23,7 @@ doi: https://doi.org/10.1101/2023.09.27.559715
 - **Beige.txt**: 	Number of snails classified as Beige colour from each population and year. It is used in the analysis of trajectory of phenotypes.
 - **Complex_Karyotypes_Ids.txt**: 	Complex inversions have 6 possible karyotypes or clusters. This file is a translation from 1 to 6 (clusters) to A,B,C,AC, BC, AB for complex inversions. It is used by the test of predictions.
 - **contigPositionsGM.txt**: 	Contains the coordinates of the contigs in the genetic map. It is used in the analysis of the inversions, the Manhattan plot, and the test for hitch-hiking.
-- **fst_previous_studies**: 	It is a directory that contains the FST values between Wave and Crab in other swedish locations. It is used in the space - time correlation analysis.
+- **/fst_previous_studies/**: 	It is a directory that contains the FST values between Wave and Crab in other swedish locations. It is used in the space - time correlation analysis.
 - **Individuals_karyotypes_inversions.txt**: 	It is a table with the karyotypes of each individual. This file is used in the test of predictions.
 - **Interpolation demographic parameters_random values 23 Sept 2023.rar**: 	500K random draws from the likelihood surface of the demographic inference.
 - **Interpolation s inversions 10 Dec.csv**: 	
@@ -34,7 +34,7 @@ doi: https://doi.org/10.1101/2023.09.27.559715
 - **Inversions_Trajectories_Frequency_WaveCrab.txt**: 	Frequencies of the inversion arrangements over time in the Crab and Wave ecotype populations. It is used in the Manhattan plot, and in the trajectories of inversions and drift simulations.
 - **Inv_Coordinates.txt**: 	Coordinates of the inversions (e.g. start and end in the genetic map). It is used in most inversion analysis, including the Manhattan plot.
 - **Inv_Genotypes.txt**: 	SNP genotypes for inversion regions. It is the basis of most inversion analysis. E.g. the estimate of arrangement frequencies.
-- **koch_2022_estimates**: 	Directory with the estimates of phenotypic plasticity from Koch et al. (2022). It is used in the estimates of selection based on phenotypes.
+- **/koch_2022_estimates/**: 	Directory with the estimates of phenotypic plasticity from Koch et al. (2022). It is used in the estimates of selection based on phenotypes.
 - **Ridges.txt**: 	Classification of snails in ridged (1) or non-ridged (0) based on "SkerryRawPhenotoypicData.xlsx". It is used in the analysis of trajectory of phenotypes.
 - **SEQSNPTM001_ALLELE_FREQS_INV.txt**: 	
 - **SEQSNPTM001_ALLELE_FREQS_NEU.txt**: 	
@@ -42,7 +42,7 @@ doi: https://doi.org/10.1101/2023.09.27.559715
 - **SEQSNPTM001_ALLELE_FREQS_OUT.txt**: 	
 - **SEQSNPTM001_ALLELE_FREQS_OUT_subsampled.txt**: 	
 - **SEQSNPTM002_GRID.txt**: 	
-- **SEQSNPTM003_DEMOGRAPHIC INFERENCE**: 	
+- **/SEQSNPTM003_DEMOGRAPHIC INFERENCE/**: 	
 - **SEQSNPTM004_RESULTS DEMOGRAPHIC INFERENCE.txt**: 	
 - **SEQSNPTM006_OUTLIER_STATUS_INV.txt**: 	
 - **SEQSNPTM006_OUTLIER_STATUS_NEU.txt**: 	
@@ -54,7 +54,7 @@ doi: https://doi.org/10.1101/2023.09.27.559715
 - **SEQSNPTM008_SGV_VS_GF_out.pdf**: 	
 - **SEQSNPTM009_TIME VS SPACE_INV.txt**: 	FST estimates for inversions along the space axis (Crab vs Wave in other swedish locations) and time axis (skerry 2021 vs 1992). It is used in the space-time correlation analysis.
 - **SEQSNPTM009_TIME VS SPACE_OUT.txt**: 	FST estimates for spatial outliers along the space axis (Crab vs Wave in other swedish locations) and time axis (skerry 2021 vs 1992). It is used in the space-time correlation analysis.
-- **shape_parameters**: 	Measures of shape shell parameters from the ShellShaper by Larsson et al (2020) for Crab, skerry and Wave samples. It is used in the estimates of selection based on phenotypes. 
+- **/shape_parameters/**: 	Measures of shape shell parameters from the ShellShaper by Larsson et al (2020) for Crab, skerry and Wave samples. It is used in the estimates of selection based on phenotypes. 
 - **SkerryExperiment_Neutral_NOLG12_Swedenfilter.txt**: 	SNP genotypes of Control loci (collinear).
 - **SkerryExperiment_Outliers_NOLG12_Swedenfilter.txt**: 	SNP genotypes of Spatial Outlier loci (collinear).
 - **SkerryRawPhenotoypicData.xlsx**: 	All measurements and observations of quantitative and qualitative traits of Crab, skerry, and Wave individuals from multiple sampling years. Shell shape measurements are not in this file.
