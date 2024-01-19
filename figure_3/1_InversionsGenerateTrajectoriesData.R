@@ -306,6 +306,117 @@ write.table(df_sample_size_inversions, '../Data/Inversions_SampleSize_for_Envelo
 ########################################################################################################
 
 
+####################### Write a file with the most common SNP genotypes in the Wave arrangement in Wave
+####################### The output file is used to identify the Wave arrangement in other swedish locations.
+####################### Therefore, it is important for the analysis of fst-time correlation of inversions.
+# Identify in Wave, the individuals that have the Wave arrangement for each inversion.
+# Then estimate the most common genotype for each SNP within the Wave arrangement
+wave_arr_freq_1_1  = trajectory_arr_freq_1_1  $WaveCrab[trajectory_arr_freq_1_1  $WaveCrab$Year == 'Wave', ]$Color
+wave_arr_freq_1_2  = trajectory_arr_freq_1_2  $WaveCrab[trajectory_arr_freq_1_2  $WaveCrab$Year == 'Wave', ]$Color
+wave_arr_freq_2    = trajectory_arr_freq_2    $WaveCrab[trajectory_arr_freq_2    $WaveCrab$Year == 'Wave', ]$Color
+wave_arr_freq_4    = trajectory_arr_freq_4    $WaveCrab[trajectory_arr_freq_4    $WaveCrab$Year == 'Wave', ]$Color
+wave_arr_freq_6    = trajectory_arr_freq_6    $WaveCrab[trajectory_arr_freq_6    $WaveCrab$Year == 'Wave' & trajectory_arr_freq_6    $WaveCrab$Allele == 'Top 1', ]$Color
+wave_arr_freq_7_1  = trajectory_arr_freq_7_1  $WaveCrab[trajectory_arr_freq_7_1  $WaveCrab$Year == 'Wave', ]$Color
+wave_arr_freq_7_2  = trajectory_arr_freq_7_2  $WaveCrab[trajectory_arr_freq_7_2  $WaveCrab$Year == 'Wave', ]$Color
+wave_arr_freq_9    = trajectory_arr_freq_9    $WaveCrab[trajectory_arr_freq_9    $WaveCrab$Year == 'Wave', ]$Color
+wave_arr_freq_10_1 = trajectory_arr_freq_10_1 $WaveCrab[trajectory_arr_freq_10_1 $WaveCrab$Year == 'Wave', ]$Color
+wave_arr_freq_10_2 = trajectory_arr_freq_10_2 $WaveCrab[trajectory_arr_freq_10_2 $WaveCrab$Year == 'Wave', ]$Color
+wave_arr_freq_11   = trajectory_arr_freq_11   $WaveCrab[trajectory_arr_freq_11   $WaveCrab$Year == 'Wave', ]$Color
+wave_arr_freq_14_1 = trajectory_arr_freq_14_1 $WaveCrab[trajectory_arr_freq_14_1 $WaveCrab$Year == 'Wave' & trajectory_arr_freq_14_1    $WaveCrab$Allele == 'Top 1', ]$Color
+wave_arr_freq_17   = trajectory_arr_freq_17   $WaveCrab[trajectory_arr_freq_17   $WaveCrab$Year == 'Wave', ]$Color
+
+#Identify the name of the individuals with a Wave arrangement
+inds_wave_arr_1_1  = rownames(coord_2pc_k_1_1  [coord_2pc_k_1_1  $Population == 'Wave' & coord_2pc_k_1_1  $NewGroup == wave_arr_freq_1_1  , ])
+inds_wave_arr_1_2  = rownames(coord_2pc_k_1_2  [coord_2pc_k_1_2  $Population == 'Wave' & coord_2pc_k_1_2  $NewGroup == wave_arr_freq_1_2  , ])
+inds_wave_arr_2    = rownames(coord_2pc_k_2    [coord_2pc_k_2    $Population == 'Wave' & coord_2pc_k_2    $NewGroup == wave_arr_freq_2    , ])
+inds_wave_arr_4    = rownames(coord_2pc_k_4    [coord_2pc_k_4    $Population == 'Wave' & coord_2pc_k_4    $NewGroup == wave_arr_freq_4    , ])
+inds_wave_arr_6    = rownames(coord_2pc_k_6    [coord_2pc_k_6    $Population == 'Wave' & coord_2pc_k_6    $NewGroup == wave_arr_freq_6    , ])
+inds_wave_arr_7_1  = rownames(coord_2pc_k_7_1  [coord_2pc_k_7_1  $Population == 'Wave' & coord_2pc_k_7_1  $NewGroup == wave_arr_freq_7_1  , ])
+inds_wave_arr_7_2  = rownames(coord_2pc_k_7_2  [coord_2pc_k_7_2  $Population == 'Wave' & coord_2pc_k_7_2  $NewGroup == wave_arr_freq_7_2  , ])
+inds_wave_arr_9    = rownames(coord_2pc_k_9    [coord_2pc_k_9    $Population == 'Wave' & coord_2pc_k_9    $NewGroup == wave_arr_freq_9    , ])
+inds_wave_arr_10_1 = rownames(coord_2pc_k_10_1 [coord_2pc_k_10_1 $Population == 'Wave' & coord_2pc_k_10_1 $NewGroup == wave_arr_freq_10_1 , ])
+inds_wave_arr_10_2 = rownames(coord_2pc_k_10_2 [coord_2pc_k_10_2 $Population == 'Wave' & coord_2pc_k_10_2 $NewGroup == wave_arr_freq_10_2 , ])
+inds_wave_arr_11   = rownames(coord_2pc_k_11   [coord_2pc_k_11   $Population == 'Wave' & coord_2pc_k_11   $NewGroup == wave_arr_freq_11   , ])
+inds_wave_arr_14_1 = rownames(coord_2pc_k_14_1 [coord_2pc_k_14_1 $Population == 'Wave' & coord_2pc_k_14_1 $NewGroup == wave_arr_freq_14_1 , ])
+inds_wave_arr_17   = rownames(coord_2pc_k_17   [coord_2pc_k_17   $Population == 'Wave' & coord_2pc_k_17   $NewGroup == wave_arr_freq_17   , ])
+
+#Remove incomplete columns and rows from the original data of each inversion
+tmp_clean_data_1_1 = remove_incomplete_snps(remove_incomplete_samples(tmp_lg_data_1_1 , 0.2), 0.2)
+tmp_clean_data_1_2 = remove_incomplete_snps(remove_incomplete_samples(tmp_lg_data_1_2 , 0.2), 0.2)
+tmp_clean_data_2   = remove_incomplete_snps(remove_incomplete_samples(tmp_lg_data_2   , 0.2), 0.2)
+tmp_clean_data_4   = remove_incomplete_snps(remove_incomplete_samples(tmp_lg_data_4   , 0.2), 0.2)
+tmp_clean_data_6   = remove_incomplete_snps(remove_incomplete_samples(tmp_lg_data_6   , 0.2), 0.2)
+tmp_clean_data_7_1 = remove_incomplete_snps(remove_incomplete_samples(tmp_lg_data_7_1 , 0.2), 0.2)
+tmp_clean_data_7_2 = remove_incomplete_snps(remove_incomplete_samples(tmp_lg_data_7_2 , 0.2), 0.2)
+tmp_clean_data_9   = remove_incomplete_snps(remove_incomplete_samples(tmp_lg_data_9   , 0.2), 0.2)
+tmp_clean_data_10_1= remove_incomplete_snps(remove_incomplete_samples(tmp_lg_data_10_1, 0.2), 0.2)
+tmp_clean_data_10_2= remove_incomplete_snps(remove_incomplete_samples(tmp_lg_data_10_2, 0.2), 0.2)
+tmp_clean_data_11  = remove_incomplete_snps(remove_incomplete_samples(tmp_lg_data_11  , 0.2), 0.2)
+tmp_clean_data_14_1= remove_incomplete_snps(remove_incomplete_samples(tmp_lg_data_14_1, 0.2), 0.2)
+tmp_clean_data_17  = remove_incomplete_snps(remove_incomplete_samples(tmp_lg_data_17  , 0.2), 0.2)
+
+#Subset the genotypes of only the inviduals that have the Wave arrangement
+genotypes_wave_arr_1_1 = tmp_clean_data_1_1 [,c('Contig',inds_wave_arr_1_1 )]
+genotypes_wave_arr_1_2 = tmp_clean_data_1_2 [,c('Contig',inds_wave_arr_1_2 )]
+genotypes_wave_arr_2   = tmp_clean_data_2   [,c('Contig',inds_wave_arr_2   )]
+genotypes_wave_arr_4   = tmp_clean_data_4   [,c('Contig',inds_wave_arr_4   )]
+genotypes_wave_arr_6   = tmp_clean_data_6   [,c('Contig',inds_wave_arr_6   )]
+genotypes_wave_arr_7_1 = tmp_clean_data_7_1 [,c('Contig',inds_wave_arr_7_1 )]
+genotypes_wave_arr_7_2 = tmp_clean_data_7_2 [,c('Contig',inds_wave_arr_7_2 )]
+genotypes_wave_arr_9   = tmp_clean_data_9   [,c('Contig',inds_wave_arr_9   )]
+genotypes_wave_arr_10_1= tmp_clean_data_10_1[,c('Contig',inds_wave_arr_10_1)]
+genotypes_wave_arr_10_2= tmp_clean_data_10_2[,c('Contig',inds_wave_arr_10_2)]
+genotypes_wave_arr_11  = tmp_clean_data_11  [,c('Contig',inds_wave_arr_11  )]
+genotypes_wave_arr_14_1= tmp_clean_data_14_1[,c('Contig',inds_wave_arr_14_1)]
+genotypes_wave_arr_17  = tmp_clean_data_17  [,c('Contig',inds_wave_arr_17  )]
+
+
+# Apply the function most_common_in_row to each row of the dataframe
+# So we can find the most common genotype of each SNP for each Wave arrangement
+most_cgenotype_wave_arr_1_1  = data.frame(Inversion=rep('LGC1.1'   , nrow(genotypes_wave_arr_1_1 )), SNP=genotypes_wave_arr_1_1 $Contig, WaveGenotype=apply(genotypes_wave_arr_1_1 , 1, most_common_in_row))
+most_cgenotype_wave_arr_1_2  = data.frame(Inversion=rep('LGC1.2'   , nrow(genotypes_wave_arr_1_2 )), SNP=genotypes_wave_arr_1_2 $Contig, WaveGenotype=apply(genotypes_wave_arr_1_2 , 1, most_common_in_row)) 
+most_cgenotype_wave_arr_2    = data.frame(Inversion=rep('LGC2.1'   , nrow(genotypes_wave_arr_2   )), SNP=genotypes_wave_arr_2   $Contig, WaveGenotype=apply(genotypes_wave_arr_2   , 1, most_common_in_row)) 
+most_cgenotype_wave_arr_4    = data.frame(Inversion=rep('LGC4.1'   , nrow(genotypes_wave_arr_4   )), SNP=genotypes_wave_arr_4   $Contig, WaveGenotype=apply(genotypes_wave_arr_4   , 1, most_common_in_row)) 
+most_cgenotype_wave_arr_6    = data.frame(Inversion=rep('LGC6.1/2' , nrow(genotypes_wave_arr_6   )), SNP=genotypes_wave_arr_6   $Contig, WaveGenotype=apply(genotypes_wave_arr_6   , 1, most_common_in_row)) 
+most_cgenotype_wave_arr_7_1  = data.frame(Inversion=rep('LGC7.1'   , nrow(genotypes_wave_arr_7_1 )), SNP=genotypes_wave_arr_7_1 $Contig, WaveGenotype=apply(genotypes_wave_arr_7_1 , 1, most_common_in_row)) 
+most_cgenotype_wave_arr_7_2  = data.frame(Inversion=rep('LGC7.2'   , nrow(genotypes_wave_arr_7_2 )), SNP=genotypes_wave_arr_7_2 $Contig, WaveGenotype=apply(genotypes_wave_arr_7_2 , 1, most_common_in_row)) 
+most_cgenotype_wave_arr_9    = data.frame(Inversion=rep('LGC9.1'   , nrow(genotypes_wave_arr_9   )), SNP=genotypes_wave_arr_9   $Contig, WaveGenotype=apply(genotypes_wave_arr_9   , 1, most_common_in_row)) 
+most_cgenotype_wave_arr_10_1 = data.frame(Inversion=rep('LGC10.1'  , nrow(genotypes_wave_arr_10_1)), SNP=genotypes_wave_arr_10_1$Contig, WaveGenotype=apply(genotypes_wave_arr_10_1, 1, most_common_in_row)) 
+most_cgenotype_wave_arr_10_2 = data.frame(Inversion=rep('LGC10.2'  , nrow(genotypes_wave_arr_10_2)), SNP=genotypes_wave_arr_10_2$Contig, WaveGenotype=apply(genotypes_wave_arr_10_2, 1, most_common_in_row)) 
+most_cgenotype_wave_arr_11   = data.frame(Inversion=rep('LGC11.1'  , nrow(genotypes_wave_arr_11  )), SNP=genotypes_wave_arr_11  $Contig, WaveGenotype=apply(genotypes_wave_arr_11  , 1, most_common_in_row)) 
+most_cgenotype_wave_arr_14_1 = data.frame(Inversion=rep('LGC14.1/2', nrow(genotypes_wave_arr_14_1)), SNP=genotypes_wave_arr_14_1$Contig, WaveGenotype=apply(genotypes_wave_arr_14_1, 1, most_common_in_row)) 
+most_cgenotype_wave_arr_17   = data.frame(Inversion=rep('LGC17.1'  , nrow(genotypes_wave_arr_17  )), SNP=genotypes_wave_arr_17  $Contig, WaveGenotype=apply(genotypes_wave_arr_17  , 1, most_common_in_row)) 
+
+#Merge all genotypes for all inversions in one single dataframe
+merged_most_common_wave_genotype = rbind(most_cgenotype_wave_arr_1_1 ,
+                                         most_cgenotype_wave_arr_1_2 ,
+                                         most_cgenotype_wave_arr_2   ,
+                                         most_cgenotype_wave_arr_4   ,
+                                         most_cgenotype_wave_arr_6   ,
+                                         most_cgenotype_wave_arr_7_1 ,
+                                         most_cgenotype_wave_arr_7_2 ,
+                                         most_cgenotype_wave_arr_9   ,
+                                         most_cgenotype_wave_arr_10_1,
+                                         most_cgenotype_wave_arr_10_2,
+                                         most_cgenotype_wave_arr_11  ,
+                                         most_cgenotype_wave_arr_14_1,
+                                         most_cgenotype_wave_arr_17  )
+
+#Write the genotypes dataframe to a text file
+write.table(merged_most_common_wave_genotype, 'Inversions_MostCommonGenotypes_WaveArrangement.txt', append = FALSE, sep = "\t", dec = ".",
+            row.names = FALSE, col.names = TRUE, quote = FALSE)
+
+
+
+#####################################################
+# Identify the most common element in a row
+#####################################################
+most_common_in_row <- function(x_df) {
+  tbl <- table(x_df)
+  mode_val <- as.character(names(tbl[tbl == max(tbl)]))
+  return(mode_val)
+}
+
 
 ################################################################################
 # Re arrange the structure of the data of each inversion to the
