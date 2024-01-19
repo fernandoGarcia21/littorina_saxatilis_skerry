@@ -29,6 +29,7 @@ doi: https://doi.org/10.1101/2023.09.27.559715
 - **Interpolation s inversions 10 Dec.csv**: 	
 - **Interpolation s sel SNPs 10 Dec.csv**: 	
 - **Inversions_Frequencies_for_Envelope_November2023.txt**: 	It contains the frequencies of the inversion arrangements in Crab, skerry and Wave from multiple years. It is used in the analysis of the expected range of the demographic inference.
+- **Inversions_MostCommonGenotypes_WaveArrangement.txt**: 	This file has the most common SNP genotypes in the Wave ecotype population for each inversion. It was used in the estimation of arrangement frequencies for the Space-Time correlation for inversions.
 - **Inversions_SampleSize_for_Envelope.txt**: 	It contains the number of individuals that was used to estimate the arrangement frequencies for each inversion and population.
 - **Inversions_Trajectories_Frequency_Skerry.txt**: 	Frequencies of the inversion arrangements over time in the skerry. It is used in the Manhattan plot, and in the trajectories of inversions and drift simulations.
 - **Inversions_Trajectories_Frequency_WaveCrab.txt**: 	Frequencies of the inversion arrangements over time in the Crab and Wave ecotype populations. It is used in the Manhattan plot, and in the trajectories of inversions and drift simulations.
@@ -60,3 +61,4 @@ doi: https://doi.org/10.1101/2023.09.27.559715
 - **SkerryRawPhenotoypicData.xlsx**: 	All measurements and observations of quantitative and qualitative traits of Crab, skerry, and Wave individuals from multiple sampling years. Shell shape measurements are not in this file.
 - **Tesselation.txt**: 	Classification of snails in tesselated (1) or non-tesselated (0) based on "SkerryRawPhenotoypicData.xlsx". It is used in the analysis of trajectory of phenotypes. Tesselation means shell patterning.
 - **Thickness.txt**: 	Average thickness of the shells based on three measurements on "SkerryRawPhenotoypicData.xlsx". It is used in the analysis of trajectory of phenotypes.
+
