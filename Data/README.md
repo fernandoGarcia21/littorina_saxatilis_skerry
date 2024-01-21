@@ -59,4 +59,3 @@ doi: https://doi.org/10.1101/2023.09.27.559715
 - **SkerryRawPhenotoypicData.xlsx**: 	All measurements and observations of quantitative and qualitative traits of Crab, skerry, and Wave individuals from multiple sampling years. Shell shape measurements are not in this file.
 - **Tesselation.txt**: 	Classification of snails in tesselated (1) or non-tesselated (0) based on "SkerryRawPhenotoypicData.xlsx". It is used in the analysis of trajectory of phenotypes. Tesselation means shell patterning.
 - **Thickness.txt**: 	Average thickness of the shells based on three measurements on "SkerryRawPhenotoypicData.xlsx". It is used in the analysis of trajectory of phenotypes.
-![image](https://github.com/fernandoGarcia21/littorina_saxatilis_skerry/assets/20094274/4f99276b-6629-4d2a-8f57-3266c12d9cba)
