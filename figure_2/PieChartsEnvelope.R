@@ -9,15 +9,18 @@
 
 # Percentages of SNPs with AF change above median envelope
 perc_neutral_above = 0.55
-perc_outlier_above = 0.67
+#perc_outlier_above = 0.67 #without downsampling of outliers to reduce clustering (full spatial outlier dataset)
+perc_outlier_above = 0.62 #with downsampling of outliers to reduce clustering (reduced-LD spatial outlier dataset)
 
 # Percentages of control SNPs with AF change beyond the expected range
 perc_neutral_above_median_beyond_exp = 0.05
 perc_neutral_below_median_beyond_exp = 0.06
 
 # Percentages of spatial outlier SNPs with AF change beyond the expected range
-perc_outlier_above_median_beyond_exp = 0.09
-perc_outlier_below_median_beyond_exp = 0.01
+#perc_outlier_above_median_beyond_exp = 0.09 #without downsampling of outliers to reduce clustering
+#perc_outlier_below_median_beyond_exp = 0.01 #without downsampling of outliers to reduce clustering
+perc_outlier_above_median_beyond_exp = 0.14 #without downsampling of outliers to reduce clustering
+perc_outlier_below_median_beyond_exp = 0.04 #without downsampling of outliers to reduce clustering
 
 #Colour scheme of the pie charts
 pies_palette = c('Above median within range' = '#73BADA',
