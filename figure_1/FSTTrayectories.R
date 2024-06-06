@@ -11,10 +11,29 @@
 swedish_neutral_snp_file <- "../Data/SkerryExperiment_Neutral_NOLG12_Swedenfilter.txt"
 swedish_outlier_snp_file <- "../Data/SkerryExperiment_Outliers_NOLG12_Swedenfilter.txt"
 
+#We conducted a subsample of outliers to reduce clustering of linked loci, especially in LG2. 
+#There were 292 spatial outlier SNPs in total. 
+#We subsampled to 1 random SNP per 1cM and also removed all SNPs between 36 and 60cM on LG2 
+#(i.e. all SNPs in the big cluster – if only subsampling, 
+#there is still a substantial overrepresentation of the centre of LG2). This leaves only 56 SNPs.
+swedish_outlier_subsample_snp_file <- "..Data/SEQSNPTM006_OUTLIER_STATUS_SUB_OUT.txt"
+
 #Read and load the data files with the genotypes
 neutral <- read.table(swedish_neutral_snp_file, header = T, check.names = FALSE)
 outliers <- read.table(swedish_outlier_snp_file, header = T, check.names = FALSE)
+outliers_subsample <- read.table(swedish_outlier_subsample_snp_file, header = F, check.names = FALSE)
+colnames(outliers_subsample) = c('index','contig','selected')
 l_cols = colnames(neutral)
+
+#split the ids of the snps of the original outliers dataset
+outliers_ids_split = str_split_fixed(outliers_original$cat, '_', 3)[,c(1,2)]
+outliers_ids_original_merged = paste(outliers_ids_split[,1], outliers_ids_split[,2], sep = "_")
+
+#Extract the genotype information only for the downsampled set of outliers
+outliers = outliers_original[outliers_original$cp %in% outliers_subsample$contig, ]
+
+#If the trajectory must include the full spatial outlier dataset, uncomment the next line
+#outliers = outliers_original
 
 #Define the keywords of the sample names (columns) that will be used in the analysis
 sample_names_1992 = "DO.92"
