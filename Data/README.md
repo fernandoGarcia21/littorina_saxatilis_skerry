@@ -47,7 +47,9 @@ doi: https://doi.org/10.1101/2023.09.27.559715
 - **SEQSNPTM006_OUTLIER_STATUS_INV.txt**: 	Indicates for each inversion whether its frequency change on the skerry is outside the range expected under drift, gene flow and model uncertainty. Used to distinguish inversions with vs without evidence for selection in plots and downstream analzses.
 - **SEQSNPTM006_OUTLIER_STATUS_NEU.txt**: 	Indicates for each control SNP whether its frequency change on the skerry is outside the range expected under drift, gene flow and model uncertainty. Used to distinguish control SNPs with vs without evidence for selection in plots and downstream analzses.
 - **SEQSNPTM006_OUTLIER_STATUS_OUT.txt**: 	Indicates for each spatial outlier SNP whether its frequency change on the skerry is outside the range expected under drift, gene flow and model uncertainty. Used to distinguish spatial outliers with vs without evidence for selection in plots and downstream analzses.
+- - **SEQSNPTM006_OUTLIER_STATUS_SUB_OUT.txt**: Contains the downsampled list of SNPs in the reduced-LD spatial outlier dataset.
 - **SEQSNPTM007_ESTIMATE_S_inv.txt**: 	Negative log-likelihood for each selection coefficient tested under the inferred demographic model for each inversion outside the expected range. Used to find the best-fitting selection coefficient.
+- 
 - **SEQSNPTM007_ESTIMATE_S_out.txt**: 	Negative log-likelihood for each selection coefficient tested under the inferred demographic model for each spatial outlier SNP outside the expected range. Used to find the best-fitting selection coefficient.
 - **SEQSNPTM008_SGV_VS_GF_inv.pdf**: 	Described in the manuscript
 - **SEQSNPTM008_SGV_VS_GF_out.pdf**: 	Described in the manuscript
