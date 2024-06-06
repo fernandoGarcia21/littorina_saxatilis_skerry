@@ -196,7 +196,7 @@ for (tmp_inv_name in inversions_names){
 }
 write.table(df_n_skerry, 'N_estimates_inversions.txt',  quote = FALSE, row.names = FALSE, sep = '\t')
 
-#Run chi-square for inversions
+#Perform Fisher's exact test for inversions
 for(tmp_inv_name in inversions_names){
   print(tmp_inv_name)
   tmp_inv_data = new_karyotypes[new_karyotypes$Inversion == tmp_inv_name,c('group','Karyotype')]
