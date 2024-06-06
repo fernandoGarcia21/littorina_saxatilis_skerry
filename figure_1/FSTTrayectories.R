@@ -16,7 +16,7 @@ swedish_outlier_snp_file <- "../Data/SkerryExperiment_Outliers_NOLG12_Swedenfilt
 #We subsampled to 1 random SNP per 1cM and also removed all SNPs between 36 and 60cM on LG2 
 #(i.e. all SNPs in the big cluster – if only subsampling, 
 #there is still a substantial overrepresentation of the centre of LG2). This leaves only 56 SNPs.
-swedish_outlier_subsample_snp_file <- "..Data/SEQSNPTM006_OUTLIER_STATUS_SUB_OUT.txt"
+swedish_outlier_subsample_snp_file <- "../Data/SEQSNPTM006_OUTLIER_STATUS_SUB_OUT.txt"
 
 #Read and load the data files with the genotypes
 neutral <- read.table(swedish_neutral_snp_file, header = T, check.names = FALSE)
