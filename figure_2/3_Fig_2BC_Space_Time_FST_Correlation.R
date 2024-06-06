@@ -23,9 +23,21 @@ library(plotly)
 fst_correlations_file_outliers <- "../Data/SEQSNPTM009_TIME VS SPACE_OUT.txt" #collinear outliers
 fst_correlations_file_inversions <- "../Data/SEQSNPTM009_TIME VS SPACE_INV.txt" #inversions
 
+#We conducted a subsample of outliers to reduce clustering of linked loci, especially in LG2. 
+#There were 292 spatial outlier SNPs in total. 
+#We subsampled to 1 random SNP per 1cM and also removed all SNPs between 36 and 60cM on LG2 
+#(i.e. all SNPs in the big cluster – if only subsampling, 
+#there is still a substantial overrepresentation of the centre of LG2). This leaves only 56 SNPs.
+swedish_outlier_subsample_snp_file <- "../Data/SEQSNPTM006_OUTLIER_STATUS_SUB_OUT.txt"
+
 #Read file and load data
 fst_correlations_outliers_data <- read.table(fst_correlations_file_outliers, header = T, check.names = FALSE)
 fst_correlations_inversions_data <- read.table(fst_correlations_file_inversions, header = T, check.names = FALSE)
+outliers_subsample <- read.table(swedish_outlier_subsample_snp_file, header = F, check.names = FALSE)
+colnames(outliers_subsample) = c('index','contig','selected')
+
+#If you need to generate the space-time correlation for the full set of outliers, then comment the following line
+fst_correlations_outliers_data = fst_correlations_outliers_data[fst_correlations_outliers_data$cp %in% outliers_subsample$contig, ]
 
 #Define the colour and shape scheme for the correlation plot
 colors_fst = c('MoralesEtAl' = '#73BADA', 'WestramEtAl' = '#E09157', 'R' = '#7A659E', 'Inversion' = "#F34573")
